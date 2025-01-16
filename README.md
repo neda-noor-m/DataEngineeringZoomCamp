@@ -47,4 +47,8 @@ docker run hello-world  // hello-world is an docker image
   1- docker run -it ubuntu bash 
     ubuntu is the name of image we want to run, keyword "it" means iterative mode (we can write), bash is the command we 
     wanna execute in this image like a parameter. All things come after image name are parameters to this container. So in 
-    this command we say we want to execute a bash on this image so we get this bash prompt. 
+    this command we say we want to execute a bash on this image so we get this bash prompt.
+  2- Docker run -it python:3.9:  to have python environment
+docker run -it --entrypoint=bash python:3.9: to install pandas on this specific container
+Docker build -t test:pandas . : builds a Docker image  from a Dockerfile in the current directory (where the Dockerfile is located) and tags it with the name test and the version pandas. After the image is built, you can refer to it as test:pandas in subsequent Docker commands (like docker run).
+
