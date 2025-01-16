@@ -37,3 +37,4 @@ After restarting computer, in CMD window type: wsl –status: I got following ou
 - Download docker from Windows | Docker Docs and install it. 
 - After restarting, if you get following window, it means you have installed docker successfully. 
 
+![Sample Image](images/docker.png)
