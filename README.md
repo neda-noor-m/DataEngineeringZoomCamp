@@ -44,10 +44,12 @@ Press accept and welcome to Docker.
 docker run hello-world  // hello-world is an docker image
 
 - useful commands:
+  
   1- docker run -it ubuntu bash 
-    ubuntu is the name of image we want to run, keyword "it" means iterative mode (we can write), bash is the command we 
-    wanna execute in this image like a parameter. All things come after image name are parameters to this container. So in 
-    this command we say we want to execute a bash on this image so we get this bash prompt.
+    ubuntu is the name of image we want to run, keyword "it" means interactive mode (we can write), ubuntu is the image we 
+    wannw have locally, bash is the command we wanna execute in this image like a parameter. All things come after image 
+    nam are parameters to this container. So in this command we say we want to execute a bash on the image Ubuntu so we get 
+    this bash prompt.
   
   2- Docker run -it python:3.9:  to have python environment
 
