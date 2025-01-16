@@ -14,12 +14,9 @@ why should we care about docker?
 
 **installing Docker:**
 
-(https://www.bing.com/videos/riverview/relatedvideo?q=how+to+install+docker+on+windows+11+youtube+video&mid=644C3A72ADF568CFFCA1644C3A72ADF568CFFCA1&FORM=VIRE)
-
-
-Docker Home Page - https://www.docker.com/
-
-
+ **Useful links:**
+1) (https://www.bing.com/videos/riverview/relatedvideo?q=how+to+install+docker+on+windows+11+youtube+video&mid=644C3A72ADF568CFFCA1644C3A72ADF568CFFCA1&FORM=VIRE)
+ Docker Home Page - https://www.docker.com/
 2) Docker Windows Download Page - https://www.docker.com/products/docke...
 3) Docker System Requirements - https://docs.docker.com/desktop/insta...
 4) Step by Step Fix Manual - https://learn.microsoft.com/en-us/win...
