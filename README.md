@@ -13,8 +13,13 @@ why should we care about docker?
 3- Integration test (CI/CD): to test a real complicated pipline locally to make sure what it is doing. so we can come up with a bunch of tests to make sure that its behaviour is what we expect. to get more information, you can look up something like GitHub action, and GitHub CI/CD.
 
 **installing Docker:**
+
 (https://www.bing.com/videos/riverview/relatedvideo?q=how+to+install+docker+on+windows+11+youtube+video&mid=644C3A72ADF568CFFCA1644C3A72ADF568CFFCA1&FORM=VIRE)
+
+
 Docker Home Page - https://www.docker.com/
+
+
 2) Docker Windows Download Page - https://www.docker.com/products/docke...
 3) Docker System Requirements - https://docs.docker.com/desktop/insta...
 4) Step by Step Fix Manual - https://learn.microsoft.com/en-us/win...
