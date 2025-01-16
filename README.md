@@ -56,6 +56,7 @@ docker run hello-world  // hello-world is an docker image
   3- docker run -it --entrypoint=bash python:3.9: to install pandas on this specific container
 
   4- Docker build -t test:pandas . : builds a Docker image  from a Dockerfile in the current directory (where the Dockerfile is located) and tags it with the name test and the version pandas. After the image is built, you can refer to it as test:pandas in subsequent Docker commands (like docker run).
+  
 ![Sample Image](images/dockerfile.png)
 
 There are lots of images in docker hub: hub.docker.com
