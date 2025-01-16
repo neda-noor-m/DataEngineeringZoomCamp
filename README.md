@@ -22,7 +22,7 @@ why should we care about docker?
 5) Step by Step Fix Manual - https://learn.microsoft.com/en-us/win...
 
 Requirements:
-1- check if WSL (windows subsystem for Linux) is on in your system:
+- check if WSL (windows subsystem for Linux) is on in your system:
 In search box, type and open: “turn Windows features on or off”:
 Check Windows hypervisor platform
 Check Windows subsystem for Linux
@@ -48,7 +48,16 @@ docker run hello-world  // hello-world is an docker image
     ubuntu is the name of image we want to run, keyword "it" means iterative mode (we can write), bash is the command we 
     wanna execute in this image like a parameter. All things come after image name are parameters to this container. So in 
     this command we say we want to execute a bash on this image so we get this bash prompt.
+  
   2- Docker run -it python:3.9:  to have python environment
-docker run -it --entrypoint=bash python:3.9: to install pandas on this specific container
-Docker build -t test:pandas . : builds a Docker image  from a Dockerfile in the current directory (where the Dockerfile is located) and tags it with the name test and the version pandas. After the image is built, you can refer to it as test:pandas in subsequent Docker commands (like docker run).
+
+  3- docker run -it --entrypoint=bash python:3.9: to install pandas on this specific container
+
+  4- Docker build -t test:pandas . : builds a Docker image  from a Dockerfile in the current directory (where the Dockerfile is located) and tags it with the name test and the version pandas. After the image is built, you can refer to it as test:pandas in subsequent Docker commands (like docker run).
 ![Sample Image](images/dockerfile.png)
+
+There are lots of images in docker hub: hub.docker.com
+
+—-- —----------------------------------------------
+List the running containers in your Docker environment: ps stands for “process status”
+docker ps
