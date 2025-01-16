@@ -16,10 +16,10 @@ why should we care about docker?
 
  **Useful links:**
 1) (https://www.bing.com/videos/riverview/relatedvideo?q=how+to+install+docker+on+windows+11+youtube+video&mid=644C3A72ADF568CFFCA1644C3A72ADF568CFFCA1&FORM=VIRE)
- Docker Home Page - https://www.docker.com/
-2) Docker Windows Download Page - https://www.docker.com/products/docke...
-3) Docker System Requirements - https://docs.docker.com/desktop/insta...
-4) Step by Step Fix Manual - https://learn.microsoft.com/en-us/win...
+2) Docker Home Page - https://www.docker.com/
+3) Docker Windows Download Page - https://www.docker.com/products/docke...
+4) Docker System Requirements - https://docs.docker.com/desktop/insta...
+5) Step by Step Fix Manual - https://learn.microsoft.com/en-us/win...
 
 Requirements:
 1- check if WSL (windows subsystem for Linux) is on in your system:
@@ -28,3 +28,4 @@ Check Windows hypervisor platform
 Check Windows subsystem for Linux
 Restart computer to complete the installation process if it asked
 After restarting computer, in CMD window type: wsl –status: I got following output:
+
