@@ -38,3 +38,13 @@ After restarting computer, in CMD window type: wsl –status: I got following ou
 - After restarting, if you get following window, it means you have installed docker successfully. 
 
 ![Sample Image](images/docker.png)
+
+Press accept and welcome to Docker.
+- To check if docker works correctly, run:
+docker run hello-world  // hello-world is an docker image
+
+- useful commands:
+  1- docker run -it ubuntu bash 
+    ubuntu is the name of image we want to run, keyword "it" means iterative mode (we can write), bash is the command we 
+    wanna execute in this image like a parameter. All things come after image name are parameters to this container. So in 
+    this command we say we want to execute a bash on this image so we get this bash prompt. 
