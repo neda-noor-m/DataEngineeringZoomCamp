@@ -66,6 +66,14 @@ There are lots of images in docker hub: hub.docker.com
 
 <h2>Some Practices</h2>
 
-1- run an python image with pandas installed. what we want as output, once we are immediately in is "hello world" to be written in terminal. 
+1- run an python image with pandas installed. what we want as output, once we are immediately in, is "hello world" to be written in terminal. <br>
+make a file called Dockerfile and writr the code below: <br>
+```python
+from python:latest
+
+RUN  pip install pandas 
+WORKDIR /app
+COPY test.py test.py
+ENTRYPOINT ["python", "test.py" ]
 
 
