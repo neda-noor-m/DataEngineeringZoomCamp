@@ -75,7 +75,6 @@ RUN  pip install pandas
 WORKDIR /app
 COPY test.py test.py
 ENTRYPOINT ["python", "test.py" ]
+```
+which test.py is a python file in which has been written `print("hello world!")`
 
-which test.py is a python file in which has been written
-```python
-print("hello world!")
