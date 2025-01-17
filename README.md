@@ -1,6 +1,6 @@
 # DataEngineeringZoomCamp
 
-**Module 1**
+<h1>**Module 1**</h1>
 
 what is Docker? It delivers **software** in packages called **container**. Containers are **isolated** from another one. 
 Pipeline is a process or a service that takes in data and produces more data. In another hand, it is a means to transfer data from somewher to somewhere else. Along the way, data is transformed and optimized , arriving in a state that can be used by engineerings.The whole idea of docker for developer is to develop applocationes, ship them into containars and then run them anywhere.
@@ -70,3 +70,5 @@ There are lots of images in docker hub: hub.docker.com
 some practices:
 
 1- run an python image with pandas installed. what we want as output, once we are immediately in is "hello world" to be written in terminal. 
+
+
