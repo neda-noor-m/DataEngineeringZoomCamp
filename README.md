@@ -22,28 +22,28 @@ Pipeline is a process or a service that takes in data and produces more data. In
 
 <h3>Requirements</h3>
 - In search box, type and open: “turn Windows features on or off” and check:<br>  
-  - Check Windows hypervisor platform  
-  - Check Windows subsystem for Linux
-- Restart computer to complete the installation process if it asked.
-- After restarting computer, in CMD window type: wsl –status: I got following output:
+  - Check Windows hypervisor platform  <br>
+  - Check Windows subsystem for Linux<br>
+- Restart computer to complete the installation process if it asked.<br>
+- After restarting computer, in CMD window type: wsl –status: I got following output:<br>
 
 ![Sample Image](images/wsl_status.png)
 
-- Just to check the things are fine:
-  Wsl –update
-- Optional: To change the version of wsl, type in cmd: –set-default-version 2
-- Download docker from Windows | Docker Docs and install it. 
-- After restarting, if you get following window, it means you have installed docker successfully. 
+- Just to check the things are fine:<br>
+  Wsl –update<br>
+- Optional: To change the version of wsl, type in cmd: –set-default-version 2<br>
+- Download docker from Windows | Docker Docs and install it. <br>
+- After restarting, if you get following window, it means you have installed docker successfully. <br>
 
 ![Sample Image](images/docker.png)
 
-- Press accept and welcome to Docker.
-- To check if docker works correctly, run:
-  docker run hello-world  // hello-world is an docker image
+- Press accept and welcome to Docker.<br>
+- To check if docker works correctly, run:<br>
+  docker run hello-world  // hello-world is an docker image<br>
 
 <h2>Useful Commands</h2>
   
-  1- docker run -it ubuntu bash 
+  1- docker run -it ubuntu bash
     ubuntu is the name of image we want to run, keyword "it" means interactive mode (we can write), ubuntu is the image we 
     wannw have locally, bash is the command we wanna execute in this image like a parameter. All things come after image 
     nam are parameters to this container. So in this command we say we want to execute a bash on the image Ubuntu so we get 
