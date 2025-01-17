@@ -76,4 +76,6 @@ WORKDIR /app
 COPY test.py test.py
 ENTRYPOINT ["python", "test.py" ]
 
-
+which test.py is a python file in which has been written
+```python
+print("hello world!")
