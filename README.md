@@ -35,6 +35,7 @@ Pipeline is a process or a service that takes in data and produces more data. In
 - Download docker from Windows | Docker Docs and install it. <br>
 - After restarting, if you get following window, it means you have installed docker successfully. <br>
 
+
 ![Sample Image](images/docker.png)
 
 - Press accept and welcome to Docker.<br>
