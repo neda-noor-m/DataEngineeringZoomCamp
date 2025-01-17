@@ -67,7 +67,7 @@ There are lots of images in docker hub: hub.docker.com
 <h2>Some Practices</h2>
 
 1- run an python image with pandas installed. what we want as output, once we are immediately in, is "hello world" to be written in terminal. <br>
-make a file called Dockerfile and writr the code below: <br>
+create a file called Dockerfile and write the code below: <br>
 ```python
 from python:latest
 
@@ -78,3 +78,11 @@ ENTRYPOINT ["python", "test.py" ]
 ```
 which test.py is a python file in which has been written `print("hello world!")`
 
+2- parametrize Dockerfile: we want the docker to takes in a date in the running time and print it.<break>
+we just change `test.py`:<break>
+```python
+import pandas as pd 
+import sys
+print(sys.argv)
+print(f"hello world!{sys.argv[1]}")
+```
