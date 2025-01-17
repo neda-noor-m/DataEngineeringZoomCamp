@@ -43,6 +43,8 @@ Press accept and welcome to Docker.
 - To check if docker works correctly, run:
 docker run hello-world  // hello-world is an docker image
 
+—-- —----------------------------------------------
+
 - useful commands:
   
   1- docker run -it ubuntu bash 
@@ -55,12 +57,16 @@ docker run hello-world  // hello-world is an docker image
 
   3- docker run -it --entrypoint=bash python:3.9: to install pandas on this specific container
 
-  4- Docker build -t test:pandas . : builds a Docker image  from a Dockerfile in the current directory (where the Dockerfile is located) and tags it with the name test and the version pandas. After the image is built, you can refer to it as test:pandas in subsequent Docker commands (like docker run).
+  4- docker ps: List the running containers in your Docker environment: ps stands for “process status”
+
+  5- Docker build -t test:pandas . : builds a Docker image  from a Dockerfile in the current directory (where the Dockerfile is located) and tags it with the name test and the version pandas. After the image is built, you can refer to it as test:pandas in subsequent Docker commands (like docker run). "." syas to save the image in the current directory.
   
 ![Sample Image](images/dockerfile.png)
 
 There are lots of images in docker hub: hub.docker.com
 
 —-- —----------------------------------------------
-List the running containers in your Docker environment: ps stands for “process status”
-docker ps
+
+some practices:
+
+1- run an python image with pandas installed. what we want as output, once we are immediately in is "hello world" to be written in terminal. 
