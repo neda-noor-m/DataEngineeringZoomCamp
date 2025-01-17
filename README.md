@@ -79,7 +79,7 @@ ENTRYPOINT ["python", "test.py" ]
 which test.py is a python file in which has been written `print("hello world!")`
 
 2- parametrize Dockerfile: we want the docker to takes in a date in the running time and print it.<break>
-we just change `test.py`:<break>
+we pass parameters to docker by the command `docker run -it docker_name parameter1 parameter2 parameter3` and the file `test.py` gets parameters by `sys.argv`:<break>
 ```python
 import pandas as pd 
 import sys
