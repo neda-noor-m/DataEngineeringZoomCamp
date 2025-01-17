@@ -22,7 +22,7 @@ Pipeline is a process or a service that takes in data and produces more data. In
 
 <h3>Requirements</h3>
 - In search box, type and open: “turn Windows features on or off” and check:  
-  - Check Windows hypervisor platform  
+- Check Windows hypervisor platform  
   - Check Windows subsystem for Linux
 - Restart computer to complete the installation process if it asked.
 - After restarting computer, in CMD window type: wsl –status: I got following output:
