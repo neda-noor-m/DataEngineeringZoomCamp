@@ -44,7 +44,7 @@ Pipeline is a process or a service that takes in data and produces more data. In
 
 <h2>Useful Commands</h2>
   
-  1- docker run -it ubuntu bash
+  1- docker run -it ubuntu bash<br>
     ubuntu is the name of image we want to run, keyword "it" means interactive mode (we can write), ubuntu is the image we 
     wannw have locally, bash is the command we wanna execute in this image like a parameter. All things come after image 
     nam are parameters to this container. So in this command we say we want to execute a bash on the image Ubuntu so we get 
