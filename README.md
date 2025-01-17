@@ -1,33 +1,30 @@
-# DataEngineeringZoomCamp
-
-<h1>**Module 1**</h1>
+<h1>Module 1</h1>
 
 what is Docker? It delivers **software** in packages called **container**. Containers are **isolated** from another one. 
 Pipeline is a process or a service that takes in data and produces more data. In another hand, it is a means to transfer data from somewher to somewhere else. Along the way, data is transformed and optimized , arriving in a state that can be used by engineerings.The whole idea of docker for developer is to develop applocationes, ship them into containars and then run them anywhere.
 
-why should we care about docker?
+<h2>why should we care about docker?</h2>
 1- reproducibility
 
 2- Local experiments
 
 3- Integration test (CI/CD): to test a real complicated pipline locally to make sure what it is doing. so we can come up with a bunch of tests to make sure that its behaviour is what we expect. to get more information, you can look up something like GitHub action, and GitHub CI/CD.
 
-**installing Docker:**
+<h2>installing Docker</h2>
 
- **Useful links:**
+ <h3>Useful links</h3>
 1) (https://www.bing.com/videos/riverview/relatedvideo?q=how+to+install+docker+on+windows+11+youtube+video&mid=644C3A72ADF568CFFCA1644C3A72ADF568CFFCA1&FORM=VIRE)
 2) Docker Home Page - https://www.docker.com/
 3) Docker Windows Download Page - https://www.docker.com/products/docke...
 4) Docker System Requirements - https://docs.docker.com/desktop/insta...
 5) Step by Step Fix Manual - https://learn.microsoft.com/en-us/win...
 
-Requirements:
-- check if WSL (windows subsystem for Linux) is on in your system:
-In search box, type and open: “turn Windows features on or off”:
-Check Windows hypervisor platform
-Check Windows subsystem for Linux
-Restart computer to complete the installation process if it asked
-After restarting computer, in CMD window type: wsl –status: I got following output:
+<h3>Requirements</h3>
+- In search box, type and open: “turn Windows features on or off” and check:
+  - Check Windows hypervisor platform
+  - Check Windows subsystem for Linux
+- Restart computer to complete the installation process if it asked.
+- After restarting computer, in CMD window type: wsl –status: I got following output:
 
 ![Sample Image](images/wsl_status.png)
 
@@ -39,13 +36,11 @@ After restarting computer, in CMD window type: wsl –status: I got following ou
 
 ![Sample Image](images/docker.png)
 
-Press accept and welcome to Docker.
+- Press accept and welcome to Docker.
 - To check if docker works correctly, run:
-docker run hello-world  // hello-world is an docker image
+  docker run hello-world  // hello-world is an docker image
 
-—-- —----------------------------------------------
-
-- useful commands:
+<h2>Useful Commands</h2>
   
   1- docker run -it ubuntu bash 
     ubuntu is the name of image we want to run, keyword "it" means interactive mode (we can write), ubuntu is the image we 
@@ -67,7 +62,7 @@ There are lots of images in docker hub: hub.docker.com
 
 —-- —----------------------------------------------
 
-some practices:
+<h2>Some Practices</h2>
 
 1- run an python image with pandas installed. what we want as output, once we are immediately in is "hello world" to be written in terminal. 
 
