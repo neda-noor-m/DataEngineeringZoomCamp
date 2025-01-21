@@ -66,16 +66,6 @@ There are lots of images in docker hub: hub.docker.com
 
 <h2>Creating a simple "data pipeline" in Docker</h2>
 
-```python
-docker run -it \
-     -e POSTGRES_USER="root" \
-     -e POSTGRES_PASSWORD="root" \
-     -e POSTGRES_DB="ny_taxi" \
-     -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
-     -p 5432:5432 \
-     postgres:13   
-```
-
 1- run an python image with pandas installed. what we want as output, once we are immediately in, is "hello world" to be written in terminal. <br>
 create a file called Dockerfile and write the code below: <br>
 ```python
@@ -98,7 +88,27 @@ import sys
 print(sys.argv)
 print(f"hello world!{sys.argv[1]}")
 ```
+
+```python
+docker run -it \
+     -e POSTGRES_USER="root" \
+     -e POSTGRES_PASSWORD="root" \
+     -e POSTGRES_DB="ny_taxi" \
+     -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+     -p 5432:5432 \
+     postgres:13   
+```
 <H1>Run Postgres</H1>
+
+```python
+docker run -it \
+     -e POSTGRES_USER="root" \
+     -e POSTGRES_PASSWORD="root" \
+     -e POSTGRES_DB="ny_taxi" \
+     -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+     -p 5432:5432 \
+     postgres:13   
+```
 1- run a postgres in interative mode: <br>
 ```python
 docker run -it \
