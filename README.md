@@ -89,7 +89,7 @@ print(sys.argv)
 print(f"hello world!{sys.argv[1]}")
 ```
 <H1>Run Postgres</H1>
-1- run a postgres in interative mode: <break>
+1- run a postgres in interative mode: <br>
 ```python
 docker run -it `
      -e POSTGRES_USER="root" `
