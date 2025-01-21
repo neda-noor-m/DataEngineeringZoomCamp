@@ -98,6 +98,16 @@ docker run -it \
      -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
      -p 5432:5432 \
      postgres:13
+
+     ```python
+# Dockerfile
+from python:latest
+
+RUN  pip install pandas 
+WORKDIR /app
+COPY test.py test.py
+ENTRYPOINT ["python", "test.py" ]
+```
 ```
 -e POSTGRES_USER : The name of our PostgreSQL user<br>
 -e POSTGRES_PASSWORD : The password for our user<br>
