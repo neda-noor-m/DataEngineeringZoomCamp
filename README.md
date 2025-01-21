@@ -99,12 +99,12 @@ docker run -it \
      -p 5432:5432 \
      postgres:13
 ```
--e POSTGRES_USER : The name of our PostgreSQL user<break>
--e POSTGRES_PASSWORD : The password for our user<break>
--e POSTGRES_DB : The name we want for our database<break>
--v or volume is a way to map a folder in our filesystem in the host machine to a folder in the filesystem of the container. This defines an external volume, ensuring data persistence. By default, PostgreSQL stores data inside the container, which is lost when the container is removed. Mounting a volume syncs the container's internal folder with a specified local folder, allowing data to persist across container recreations. <break>
-**To start an interactive shell session inside a container:** `docker exec -it docker_ID bash` <break>
-2- Next up, we connect to the database using the command line that is specidic for postgres **PGCLI**. I enterd the PostgreSQL port, database name, user, and localhost as the host to verify everything is working.<break>
+-e POSTGRES_USER : The name of our PostgreSQL user<br>
+-e POSTGRES_PASSWORD : The password for our user<br>
+-e POSTGRES_DB : The name we want for our database<br>
+-v or volume is a way to map a folder in our filesystem in the host machine to a folder in the filesystem of the container. This defines an external volume, ensuring data persistence. By default, PostgreSQL stores data inside the container, which is lost when the container is removed. Mounting a volume syncs the container's internal folder with a specified local folder, allowing data to persist across container recreations. <br>
+**To start an interactive shell session inside a container:** `docker exec -it docker_ID bash` <br>
+2- Next up, we connect to the database using the command line that is specidic for postgres **PGCLI**. I enterd the PostgreSQL port, database name, user, and localhost as the host to verify everything is working.<br>
  ```python
 pgcli -h localhost -u root -p 5432 -d ny_taxi # to connect to postgres
 ```
