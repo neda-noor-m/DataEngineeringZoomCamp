@@ -99,7 +99,8 @@ docker run -it \
      postgres:13   
 ```
 <H1>Run Postgres</H1>
-
+[Visit GitHub](https://github.com)
+[video](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5&feature=youtu.be)<br>
 1- run postgres in an interactive mode: <br>
 ```python
 docker run -it \
@@ -141,8 +142,8 @@ engine=create_engine(f"postgresql://{user}:{password}@{host}:{port}/{database}")
 
 df_it = pd.read_csv("/home/neda/neda/dataSets/green_tripdata_2019-10.csv", iterator=True, chunksize=10000)
 for chunk in tqdm(df_it):
-    chunk.lpep_pickup_datetime = pd.to_datetime(chunk.lpep_pickup_datetime) # pandas recognizes lpep_pickup_datetime as text. We will use pd.to_datetime to change its type.
-    chunk.lpep_dropoff_datetime = pd.to_datetime(chunk.lpep_dropoff_datetime)
+    chunk.lpep_pickup_datetime = pd.to_datetime(chunk.lpep_pickup_datetime) # pandas recognizes lpep_pickup_datetime as text. We will use pd.to_datetime to change it.
+    chunk.lpep_dropoff_datetime = pd.to_datetime(chunk.lpep_dropoff_datetime) # same as lpep_pickup_datetime
     chunk.to_sql(con=engine, name='green_tripdata_2019_10', if_exists="append")
 ```
 
