@@ -151,9 +151,11 @@ for chunk in tqdm(df_it):
 ```
 # Connecting pgAdmin and Postgres
 
-In this step, we want to interact with postgres by pgadmin wich is a web-based tool, and very user freindly. To connect these 2 dockers we need to connect them to the same `network`. first we create a network and then connect the dockers to it with the parameter`--network`.
+[Wathch video](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=8)
+
+1- In this step, we want to interact with postgres by pgadmin wich is a web-based tool, and very user freindly. To connect these 2 dockers we need to connect them to the same `network`. first we create a network and then connect the dockers to it with the parameter`--network`.
 ```python
-docker network create pg-network
+2- docker network create pg-network
 ```
 run postgres and connect it to `pg-network` already created:
 ```python
@@ -177,3 +179,4 @@ docker run -it \
      --name pgadmin \
 dpage/pgadmin4
 ```
+3- to access to pgadmin, open the browser and enter `localhost:8080` and you direct to the pgadmin page. in this page you are requested to enter some info about the server you're going to connect to (here is postgres). please note to specify `pg-database` as the host name.
