@@ -100,7 +100,7 @@ docker run -it \
 ```
 <H1>Run Postgres</H1>
 
-1- run a postgres in interative mode: <br>
+1- run postgres in an interactive mode: <br>
 ```python
 docker run -it \
      -e POSTGRES_USER="root" \
@@ -116,11 +116,11 @@ docker run -it \
 -v or volume is a way to map a folder in our filesystem in the host machine to a folder in the filesystem of the container. This defines an external volume, ensuring data persistence. By default, PostgreSQL stores data inside the container, which is lost when the container is removed. Mounting a volume syncs the container's internal folder with a specified local folder, allowing data to persist across container recreations. <br>
 **To start an interactive shell session inside a container:** `docker exec -it docker_ID bash` <br>
 
-2- Next up, we connect to the database using the command line that is specidic for postgres **PGCLI**. I enterd the PostgreSQL port, database name, user, and localhost as the host to verify everything is working.<br>
+2- Next up, we connect to the database using the command line that is specific for postgres **PGCLI**. I enterd the PostgreSQL port, database name, user, and localhost as the host to verify everything is working.<br>
  ```python
 pgcli -h localhost -u root -p 5432 -d ny_taxi # to connect to postgres
 ```
-3- Loading data into the database: here we will open jupyter notebook. because i installed anaconda, I already have jupyter notebook installed. I type jupyter notebook and it will bring me to the jupyter. Because I am practicing all these stuff on the VM, after typing jupyter notebook, you will need to map ports of local system nad remote system. 
+3- Loading data into the database: here we will open jupyter notebook. because i installed anaconda, I already have jupyter notebook installed. I type jupyter notebook and it taks me to the jupyter. Because I am practicing all these stuff on the VM, after typing jupyter notebook, you will need to map ports of local system nad remote system. 
 
 
 
