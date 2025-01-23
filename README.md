@@ -98,9 +98,11 @@ docker run -it \
      -p 5432:5432 \
      postgres:13   
 ```
-<H1>Run Postgres</H1>
-[Visit GitHub](https://github.com)
-[video](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5&feature=youtu.be)<br>
+# Run Postgres
+
+[Watch Video](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5&feature=youtu.be)
+
+
 1- run postgres in an interactive mode: <br>
 ```python
 docker run -it \
