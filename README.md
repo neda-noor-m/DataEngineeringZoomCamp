@@ -122,5 +122,27 @@ pgcli -h localhost -u root -p 5432 -d ny_taxi # to connect to postgres
 ```
 3- Loading data into the database: here we will open jupyter notebook. because i installed anaconda, I already have jupyter notebook installed. I type jupyter notebook and it taks me to the jupyter. Because I am practicing all these stuff on the VM, after typing jupyter notebook, you will need to map ports of local system nad remote system. 
 
+```python
+import pandas as pd
+import psycopg2
+from sqlalchemy import create_engine, text
+import os
+from tqdm import tqdm
 
+os.system('wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz -P /home/neda/neda/dataSets')
+
+# DEFINE THE DATABASE CREDENTIALS
+user = 'root'
+password = 'root'
+host = 'localhost'
+port = 5432
+database = 'ny_taxi'
+engine=create_engine(f"postgresql://{user}:{password}@{host}:{port}/{database}")
+
+df_it = pd.read_csv("/home/neda/neda/dataSets/green_tripdata_2019-10.csv", iterator=True, chunksize=10000)
+for chunk in tqdm(df_it):
+    chunk.lpep_pickup_datetime = pd.to_datetime(chunk.lpep_pickup_datetime) # pandas recognizes lpep_pickup_datetime as text. We will use pd.to_datetime to change its type.
+    chunk.lpep_dropoff_datetime = pd.to_datetime(chunk.lpep_dropoff_datetime)
+    chunk.to_sql(con=engine, name='green_tripdata_2019_10', if_exists="append")
+```
 
