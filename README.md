@@ -126,6 +126,7 @@ pgcli -h localhost -u root -p 5432 -d ny_taxi # to connect to postgres
 3- Loading data into the database: here we will open jupyter notebook. because i installed anaconda, I already have jupyter notebook installed. I type jupyter notebook and it taks me to the jupyter. Because I am practicing all these stuff on the VM, after typing jupyter notebook, you will need to map ports of local system nad remote system. 
 
 ```python
+# a simple pipline
 import pandas as pd
 import psycopg2
 from sqlalchemy import create_engine, text
