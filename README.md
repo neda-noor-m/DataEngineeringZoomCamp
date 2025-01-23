@@ -149,4 +149,31 @@ for chunk in tqdm(df_it):
     chunk.lpep_dropoff_datetime = pd.to_datetime(chunk.lpep_dropoff_datetime) # same as lpep_pickup_datetime
     chunk.to_sql(con=engine, name='green_tripdata_2019_10', if_exists="append")
 ```
+# Connecting pgAdmin and Postgres
 
+In this step, we want to interact with postgres by pgadmin wich is a web-based tool, and very user freindly. To connect these 2 dockers we need to connect them to the same `network`. first we create a network and then connect the dockers to it with the parameter`--network`.
+```python
+docker network create pg-network
+```
+run postgres and connect it to `pg-network` already created:
+```python
+docker run -it \
+     -e POSTGRES_USER="root" \
+     -e POSTGRES_PASSWORD="root" \
+     -e POSTGRES_DB="ny_taxi" \
+     -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+     -p 5431:5432 \
+     --network=pg-network \
+     --name pg-database \
+postgres:13
+```
+now run pgadmin and connect it to `pg-network`:
+```pyrhon
+docker run -it \
+     -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+     -e PGADMIN_DEFAULT_PASSWORD="root" \
+     -p 8080:80 \
+     --network=pg-network \
+     --name pgadmin \
+dpage/pgadmin4
+```
