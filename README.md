@@ -155,9 +155,9 @@ for chunk in tqdm(df_it):
 
 1- In this step, we want to interact with postgres by pgadmin wich is a web-based tool, and very user freindly. To connect these 2 dockers we need to connect them to the same `network`. first we create a network and then connect the dockers to it with the parameter`--network`.
 ```python
-2- docker network create pg-network
+docker network create pg-network
 ```
-run postgres and connect it to `pg-network` already created:
+run postgres and connect it to `pg-network`:
 ```python
 docker run -it \
      -e POSTGRES_USER="root" \
