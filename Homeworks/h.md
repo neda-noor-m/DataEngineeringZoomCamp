@@ -55,5 +55,5 @@ volumes:
 - db:5432
 
 Docker Compose automatically sets up a network where services can communicate using their service names as hostnames. Within the Docker network, pgAdmin connects to the PostgreSQL service using the internal container port (5432) of the db service. The external port mapping (5433:5432) is irrelevant for internal communication between services in the same Docker network. so:<br>
-**Hostname:** db<br>
+**Hostname:** postgres<br>
 **Port:** 5432
