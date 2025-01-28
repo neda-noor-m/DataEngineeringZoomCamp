@@ -181,7 +181,13 @@ dpage/pgadmin4
 ```
 2- to access to pgadmin, open the browser and enter `localhost:8080` and you direct to the pgadmin page. in this page you are requested to enter some info about the server you're going to connect to (here is postgres). please note to specify `pg-database` as the host name.
 
+# Putting the ingestion script into Docker
+[Wahtch video](https://www.youtube.com/watch?v=B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=9)
+
 3- In this step, we are going to upload a dataset to the postgres with a pipeline.<br>
  3-1- Pipeline as a simple script:<br>
 
  3-2- Pipline as a docker: 
+
+
+
