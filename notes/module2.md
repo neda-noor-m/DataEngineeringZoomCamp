@@ -1,5 +1,6 @@
 **what does `Kestra` look like?**
-[] https://www.youtube.com/watch?v=Np6QmmcgLCs
+[Watch Video](https://www.youtube.com/watch?v=Np6QmmcgLCs)
+ 
 a workflow starts with: 
 1- an Id which is the name of workflow and must be uniqe in `kestra` 
 2- namespace which is like a folder
