@@ -14,6 +14,17 @@ inputs:
 ```
 during execution, we can change the values of defaults and get different result.
 
-4- tasks: 
+4- taks: 
+```python
+tasks:
+  - id: extract
+    type: io.kestra.http.downlaod
+    uri: wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz
 
-
+  - id: transform
+    type: io.kestra.plugin.scripts.pyhton.Script
+    containerimage: ...
+    imputFiles:
+      data.json: "{{ outputs.extract.uri }}"
+```
+lets say our first task is to extract data from the the link mentioned in `url` feild above. the second task is to transform our data which is a python script. this script could be inside of this code or outside of this code as a seprated file. as you see, we care getting the data from last task by `imputFiles` parameter. 
