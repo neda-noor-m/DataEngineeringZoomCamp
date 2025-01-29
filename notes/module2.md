@@ -1,4 +1,5 @@
 **what does `Kestra` look like?**
+[] https://www.youtube.com/watch?v=Np6QmmcgLCs
 a workflow starts with: 
 1- an Id which is the name of workflow and must be uniqe in `kestra` 
 2- namespace which is like a folder
@@ -26,5 +27,13 @@ tasks:
     containerimage: ...
     imputFiles:
       data.json: "{{ outputs.extract.uri }}"
+   #the rest of code
+
+  - id: query
+    type: io.kestra...query
+    inputFiles:
+      products.json: "{{ outputs.transform.outputsfiles['products.json'] }}"
+    sql:
+      
 ```
-lets say our first task is to extract data from the the link mentioned in `url` feild above. the second task is to transform our data which is a python script. this script could be inside of this code or outside of this code as a seprated file. as you see, we care getting the data from last task by `imputFiles` parameter. 
+lets say our first task is to extract data from the the link mentioned in `url` feild above. the second task is to transform our data which is a python script. this script could be inside of this code or outside of this code as a seprated file. as you see, we care getting the data from last task by `imputFiles` parameter. afterwards, we pass the product.json to the query.
