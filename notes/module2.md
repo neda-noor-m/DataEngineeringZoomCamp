@@ -55,3 +55,16 @@ docker run --pull=always --rm -it -p 8080:8080 --user=root -v /var/run/docker.so
 
 
 to make sure this works we will one property called namespaceFile and set it up to True otherwise the task wont be able to see the file in the editor.
+
+<h1>2. Hands-On Coding Project: Build Data Pipelines with Kestra</h1>
+<h3>Load Data to Local Postgres</h3>
+because we are going use a few queries here, we are going to use `pluginDefaults`to allow us to be able set the URL username and pasword for all postgres tasks. This is useful if we end up using differnt databases using differnt connection URL, we havent got to update it in all locations. so we added `pluginDefaults` at the end of file.
+
+```python
+pluginDefaults:
+  - type: io.kestra.plugin.jdbc.postgresql
+    values:
+      url: jdbc:postgresql://host.docker.internal:5432/postgres-zoomcamp
+      username: kestra
+      password: k3str4
+```
