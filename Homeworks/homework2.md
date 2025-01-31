@@ -24,3 +24,8 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 <br>
 
 ----------------------------------------------------------------------------------------------
+3- How many rows are there for the Yellow Taxi data for all CSV files in the year 2020?<br>
+1- 13,537.299<br>
+2- 24,648,499<br>
+3- 18,324,219<br>
+4- 29,430,127<br>
