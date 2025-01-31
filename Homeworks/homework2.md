@@ -3,5 +3,10 @@
 1- 128.3 MB<br>
 2- 134.5 MB<br>
 3- 364.7 MB<br>
-4- 692.6 MB<br>
+4- 692.6 MB<br><br>
+
+**ANSWER: 128.3 MB**
+<br><br>
+
+![Sample Image](../images/module2/kes_1.png)
 
