@@ -37,11 +37,17 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 <br><br>
 
 ----------------------------------------------------------------------------------------------
-4- How many rows are there for the Green Taxi data for all CSV files in the year 2020?
-1- 5,327,301
-2- 936,199
-3- 1,734,051
-4- 1,342,034
+4- How many rows are there for the Green Taxi data for all CSV files in the year 2020?<br>
+1- 5,327,301<br>
+2- 936,199<br>
+3- 1,734,051<br>
+4- 1,342,034<br>
+
+**ANSWER: 3**
+<br><br>
+
+![Sample Image](../images/module2/kes_4.png)
+<br><br>
 
 ----------------------------------------------------------------------------------------------
 
