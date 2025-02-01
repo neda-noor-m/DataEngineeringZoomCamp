@@ -37,4 +37,24 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 <br><br>
 
 ----------------------------------------------------------------------------------------------
+4- How many rows are there for the Green Taxi data for all CSV files in the year 2020?
+1- 5,327,301
+2- 936,199
+3- 1,734,051
+4- 1,342,034
 
+----------------------------------------------------------------------------------------------
+
+5- How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
+1- 1,428,092
+2- 706,911
+3- 1,925,152
+4- 2,561,031
+
+----------------------------------------------------------------------------------------------
+
+6- How would you configure the timezone to New York in a Schedule trigger?
+1- Add a timezone property set to EST in the Schedule trigger configuration
+2- Add a timezone property set to America/New_York in the Schedule trigger configuration
+3- Add a timezone property set to UTC-5 in the Schedule trigger configuration
+4- Add a location property set to New_York in the Schedule trigger configuration
