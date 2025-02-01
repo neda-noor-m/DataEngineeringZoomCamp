@@ -57,6 +57,12 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 3- 1,925,152
 4- 2,561,031
 
+**ANSWER: 2**
+<br><br>
+
+![Sample Image](../images/module2/kes_4.png)
+<br><br>
+
 ----------------------------------------------------------------------------------------------
 
 6- How would you configure the timezone to New York in a Schedule trigger?
