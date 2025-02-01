@@ -65,8 +65,11 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 
 ----------------------------------------------------------------------------------------------
 
-6- How would you configure the timezone to New York in a Schedule trigger?
-1- Add a timezone property set to EST in the Schedule trigger configuration
-2- Add a timezone property set to America/New_York in the Schedule trigger configuration
-3- Add a timezone property set to UTC-5 in the Schedule trigger configuration
-4- Add a location property set to New_York in the Schedule trigger configuration
+6- How would you configure the timezone to New York in a Schedule trigger?<br>
+1- Add a timezone property set to EST in the Schedule trigger configuration<br>
+2- Add a timezone property set to America/New_York in the Schedule trigger configuration<br>
+3- Add a timezone property set to UTC-5 in the Schedule trigger configuration<br>
+4- Add a location property set to New_York in the Schedule trigger configuration<br>
+
+**ANSWER: 2**
+
