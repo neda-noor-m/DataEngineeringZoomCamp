@@ -51,11 +51,11 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 
 ----------------------------------------------------------------------------------------------
 
-5- How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
-1- 1,428,092
-2- 706,911
-3- 1,925,152
-4- 2,561,031
+5- How many rows are there for the Yellow Taxi data for the March 2021 CSV file?<br>
+1- 1,428,092<br>
+2- 706,911<br>
+3- 1,925,152<br>
+4- 2,561,031<br>
 
 **ANSWER: 3**
 <br><br>
