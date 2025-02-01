@@ -30,4 +30,11 @@ we need just to substitute the values `green`,`2020`, and`04` respectively with 
 3- 18,324,219<br>
 4- 29,430,127<br>
 
+**ANSWER: 2**
+<br><br>
+
+![Sample Image](../images/module2/kes_3.png)
+<br><br>
+
+----------------------------------------------------------------------------------------------
 
