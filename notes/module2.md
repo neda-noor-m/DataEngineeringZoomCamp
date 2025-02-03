@@ -70,3 +70,13 @@ pluginDefaults:
       username: kestra
       password: k3str4
 ```
+
+<h1>4. ETL Pipelines in Kestra: Google Cloud Platform</h1>
+To be more specific, we'll continue extracting data from our CSV files as we did previously, but this time, instead of loading them into Postgres, we’ll upload them directly to Google Cloud Storage. Once the data is there, BigQuery will automatically generate tables from these files, enabling us to process the data and run queries. This approach follows the same process as before, with the added benefit of being able to manage the Yellow Taxi files, which were previously too large for efficient processing in Postgres.
+
+**Note on BigQuery vs. Google Cloud Storage:**
+1- **BigQuery** functions as a data warehouse, designed to store structured data for fast querying and analysis. It is optimized for running SQL queries on large datasets, making it ideal for transforming and analyzing data that has already been structured and loaded into tables.
+
+2- **Google Cloud Storage**, on the other hand, serves as a data lake where raw, unstructured, or semi-structured data can be stored. It allows us to store vast amounts of data in any format (like CSVs or JSON) before it's processed. In our case, we use it to house the CSV files before BigQuery takes over for analysis.
+
+In short, Google Cloud Storage is where we land raw data, and BigQuery is where we process and analyze it efficiently.
