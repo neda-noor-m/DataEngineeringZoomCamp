@@ -84,3 +84,5 @@ In short, Google Cloud Storage is where we land raw data, and BigQuery is where 
 First we need to set up our GCP credentials such as our google cloud service account, project ID, location regein, BigQuery dataset, bucket name. The flow `04_gcp_kv.yaml` stores these values as KV (Key Value) Store values.In Kestra, KV Store values are a kind of environment variables file.<br>
 
 fill in the values needed for keys in the flow `04_gcp_kv.yaml` and execute the code. If you go to KV Store found in Namespaces->zoomcamp->KV Store you will see all KVs are added.
+<h2>05_GCP_setup</h2>
+What we're gonna do here is to create GCP resources. We here again use `pluginDefualts` for not to have to repeat some code. 
