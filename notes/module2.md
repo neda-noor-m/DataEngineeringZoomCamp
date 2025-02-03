@@ -1,3 +1,5 @@
+docker-compose down --volumes --remove-orphans
+
 [h1]what does `Kestra` look like?[h1]
 [Watch Video](https://www.youtube.com/watch?v=Np6QmmcgLCs)
  
