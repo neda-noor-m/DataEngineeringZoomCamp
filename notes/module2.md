@@ -85,4 +85,4 @@ First we need to set up our GCP credentials such as our google cloud service acc
 
 fill in the values needed for keys in the flow `04_gcp_kv.yaml` and execute the code. If you go to KV Store found in Namespaces->zoomcamp->KV Store you will see all KVs are added.
 <h2>05_GCP_setup</h2>
-What we're gonna do here is to create GCP resources. We here again use `pluginDefualts` for not to have to repeat some code. 
+What we're gonna do here is to create GCP resources. We here again use `pluginDefualts` for not to have to repeat some code. Execute this code and see everytings get added to GC. 
