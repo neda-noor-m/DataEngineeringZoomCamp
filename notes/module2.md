@@ -86,3 +86,28 @@ First we need to set up our GCP credentials such as our google cloud service acc
 fill in the values needed for keys in the flow `04_gcp_kv.yaml` and execute the code. If you go to KV Store found in Namespaces->zoomcamp->KV Store you will see all KVs are added.
 <h2>05_GCP_setup</h2>
 What we're gonna do here is to create GCP resources. We here again use `pluginDefualts` for not to have to repeat some code. Execute this code and see everytings get added to GC. 
+```python
+id: 05_gcp_setup
+namespace: zoomcamp
+
+tasks:
+  - id: create_gcs_bucket
+    type: io.kestra.plugin.gcp.gcs.CreateBucket
+    ifExists: SKIP
+    storageClass: REGIONAL
+    name: "{{kv('GCP_BUCKET_NAME')}}" # make sure it's globally unique!
+
+
+  - id: create_bq_dataset
+    type: io.kestra.plugin.gcp.bigquery.CreateDataset
+    name: "{{kv('GCP_DATASET')}}"
+    ifExists: SKIP
+
+pluginDefaults:
+  - type: io.kestra.plugin.gcp
+    values:
+      serviceAccount: "{{kv('GCP_CREDS')}}"
+      projectId: "{{kv('GCP_PROJECT_ID')}}"
+      location: "{{kv('GCP_LOCATION')}}"
+      bucket: "{{kv('GCP_BUCKET_NAME')}}"
+```
