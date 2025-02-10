@@ -34,3 +34,8 @@ You may import an external table into BQ as a regular internal table by copying 
 CREATE OR REPLACE TABLE taxi-rides-ny.nytaxi.yellow_tripdata_non_partitoned AS
 SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata;
 ```
+
+<h3>regular table</h3>
+✅ The table physically stores the data inside BigQuery.
+✅ Since it is not an external table, queries will read from BigQuery storage instead of GCS.
+✅ If you query this table, BigQuery will not need to scan GCS files anymore.
