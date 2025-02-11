@@ -77,6 +77,7 @@ How many records have a fare_amount of 0?<br><br>
 SELECT COUNT(DISTINCT PULocationID) as PUL, COUNT(distinct DOLocationID) as DOL  FROM `taxi-rides-ny-447721.HMW_3.yellow_tripdata_load`;
 ```
 **answer:4**
+
 ---------------------------------------------------------------------
 <h2>Question 5</h2>
 What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)<br><br>
