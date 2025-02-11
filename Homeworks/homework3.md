@@ -131,6 +131,7 @@ Where is the data stored in the External Table you created?<br><br>
 4- Big Table<br>
 
 **answer:3**
+
 ---------------------------------------------------------------------
 
 <h2>Question 8</h2>
