@@ -130,14 +130,18 @@ Where is the data stored in the External Table you created?<br><br>
 3- GCP Bucket<br>
 4- Big Table<br>
 
+**answer:3**
 ---------------------------------------------------------------------
 
 <h2>Question 8</h2>
 It is best practice in Big Query to always cluster your data:<br><br>
 
 1- True<br>
-2- False<br>
+2- False<br><br>
 
----------------------------------------------------------------------
-<h2>(Bonus: Not worth points) Question 9</h2>
-No Points: Write a SELECT count(*) query FROM the materialized table you created. How many bytes does it estimate will be read? Why?<br>
+When Clustering is Beneficial:
+When queries frequently filter on specific high-cardinality columns (e.g., timestamp, user_id).
+When tables are large and sorting data improves scan efficiency.
+When partitioning alone is not enough to improve performance.
+
+**answer:2**
