@@ -92,3 +92,30 @@ cluster by VendorID as
 select * from `taxi-rides-ny-447721.HMW_3.yellow_tripdata_load`;
 ```
 **answer:1**
+
+---------------------------------------------------------------------
+<h2>Question 6</h2>
+Write a query to retrieve the distinct VendorIDs between tpep_dropoff_datetime 2024-03-01 and 2024-03-15 (inclusive)<br>
+
+Use the materialized table you created earlier in your from clause and note the estimated bytes. Now change the table in the from clause to the partitioned table you created for question 5 and note the estimated bytes processed. What are these values?<br><br>
+
+Choose the answer which most closely matches.<br><br>
+
+1- 12.47 MB for non-partitioned table and 326.42 MB for the partitioned table<br>
+2- 310.24 MB for non-partitioned table and 26.84 MB for the partitioned table<br>
+3- 5.87 MB for non-partitioned table and 0 MB for the partitioned table<br>
+4- 310.31 MB for non-partitioned table and 285.64 MB for the partitioned table<br>
+
+```python
+# regular table: it will process 310.24 MB
+select distinct(VendorID) 
+from `taxi-rides-ny-447721.HMW_3.yellow_tripdata_load`
+where tpep_dropoff_datetime between '2024-03-01' and '2024-03-15';
+
+# partitioned table: it will process 26.84 MB
+select distinct(VendorID) 
+from `taxi-rides-ny-447721.HMW_3.yellow_tripdata_partitioned`
+where tpep_dropoff_datetime between '2024-03-01' and '2024-03-15';
+```
+
+**answer:2**
