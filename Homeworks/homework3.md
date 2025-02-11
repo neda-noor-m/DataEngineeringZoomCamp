@@ -14,7 +14,7 @@ from files(
   uris = ['gs://de_zoomcamp_2025_nedanoor/yellow_tripdata_2024-*.parquet']
 );
 ```
-
+---------------------------------------------------------------------
 <h2>Question 1</h2>
 What is count of records for the 2024 Yellow Taxi Data?<br>
 1- 65,623<br>
@@ -27,6 +27,7 @@ select count(*) as cont
 from `taxi-rides-ny-447721.HMW_3.yellow_tripdata_load`;
 ```
 ***answer:3***
+
 ---------------------------------------------------------------------
 <h2>Question 2</h2>
 Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.
