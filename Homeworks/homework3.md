@@ -54,11 +54,41 @@ print(f"Estimated bytes to be processed: {query_job.total_bytes_processed / (102
 ```
 ---------------------------------------------------------------------
 <h2>Question 3</h2>
-Write a query to retrieve the PULocationID from the table (not the external table) in BigQuery. Now write a query to retrieve the PULocationID and DOLocationID on the same table. Why are the estimated number of Bytes different?<br>
+Write a query to retrieve the PULocationID from the table (not the external table) in BigQuery. Now write a query to retrieve the PULocationID and DOLocationID on the same table. Why are the estimated number of Bytes different?<br><br>
 
 1- BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.<br>
 2- BigQuery duplicates data across multiple storage partitions, so selecting two columns instead of one requires scanning the table twice, doubling the estimated bytes processed.<br>
 3- BigQuery automatically caches the first queried column, so adding a second column increases processing time but does not affect the estimated bytes scanned.<br>
 4- When selecting multiple columns, BigQuery performs an implicit join operation between them, increasing the estimated bytes processed<br>
 
+**answer:1**
+
+---------------------------------------------------------------------
+<h2>Question 4</h2>
+How many records have a fare_amount of 0?<br><br>
+
+1- 128,210<br>
+2- 546,578<br>
+3- 20,188,016<br>
+4- 8,333<br>
+
+```python
+SELECT COUNT(DISTINCT PULocationID) as PUL, COUNT(distinct DOLocationID) as DOL  FROM `taxi-rides-ny-447721.HMW_3.yellow_tripdata_load`;
+```
+**answer:4**
+---------------------------------------------------------------------
+<h2>Question 5</h2>
+What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)<br><br>
+
+1- Partition by tpep_dropoff_datetime and Cluster on VendorID<br>
+2- Cluster on by tpep_dropoff_datetime and Cluster on VendorID<br>
+3- Cluster on tpep_dropoff_datetime Partition by VendorID<br>
+4- Partition by tpep_dropoff_datetime and Partition by VendorID<br>
+
+```python
+create or replace table `taxi-rides-ny-447721.HMW_3.yellow_tripdata_partitioned`
+partition by DATE(tpep_dropoff_datetime)
+cluster by VendorID as
+select * from `taxi-rides-ny-447721.HMW_3.yellow_tripdata_load`;
+```
 **answer:1**
