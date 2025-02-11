@@ -119,3 +119,25 @@ where tpep_dropoff_datetime between '2024-03-01' and '2024-03-15';
 ```
 
 **answer:2**
+
+---------------------------------------------------------------------
+
+<h2>Question 7</h2>
+Where is the data stored in the External Table you created?<br><br>
+
+1- Big Query<br>
+2- Container Registry<br>
+3- GCP Bucket<br>
+4- Big Table<br>
+
+---------------------------------------------------------------------
+
+<h2>Question 8</h2>
+It is best practice in Big Query to always cluster your data:<br><br>
+
+1- True<br>
+2- False<br>
+
+---------------------------------------------------------------------
+<h2>(Bonus: Not worth points) Question 9</h2>
+No Points: Write a SELECT count(*) query FROM the materialized table you created. How many bytes does it estimate will be read? Why?<br>
