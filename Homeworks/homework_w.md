@@ -54,4 +54,37 @@ conn.sql("DESCRIBE").df()
 **ANSWER: 2**
 
 ----------------------------------------------------------------------------------------------
+<h2>Question 3: Explore the loaded data</h2>
+What is the total number of records extracted?<br><br>
+
+1- 2500<br>
+2- 5000<br>
+3- 7500<br>
+4- 10000<br>
+
+```python
+df = pipeline.dataset(dataset_type="default").rides.df()
+df
+# 10000 rows × 18 columns
+```
+<br><br>
+
+**ANSWER: 4**
+
+----------------------------------------------------------------------------------------------
+<h2>Question 4: Trip Duration Analysis</h2>
+    
+What is the average trip duration?<br><br>
+
+1- 12.3049<br>
+2- 22.3049<br>
+3- 32.3049<br>
+4- 42.3049<br>
+
+
+![Sample Image](../images/workshop/w2.png)
+<br><br>
+
+**ANSWER: 1**
+
 
