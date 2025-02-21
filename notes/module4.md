@@ -1,1 +1,1 @@
-
+Deduplication: we use the same 2 fields (`vendorid, lpep_pickup_datetime`) for the `row_number()` that we used to generate the surrogate keyf which means we are trying to find duplicates of that primary key of rows that have the same primary key and then filter thoes duplicated rows with `rn=1` to maintain only one of those duplicates.
