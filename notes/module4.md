@@ -70,4 +70,4 @@ Table: A table is a database object that stores data in rows and columns.
 
 View: A view is a virtual table that is based on a SELECT query from one or more underlying tables. It does not store data itself but provides a way to present and manipulate data from these tables in a specific format. 
 
-`dbt deps`installes all dependencies and pckages in my packages.yml
+Run `dbt deps` to install the package.
