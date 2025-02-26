@@ -122,6 +122,89 @@ Since there is a fallback, the compilation will not fail even if DBT_BIGQUERY_ST
 **answer:2**
 
 ____________________________________________________________________________________
+<h2>Question 5: Taxi Quarterly Revenue Growth</h2>
+Create a new model fct_taxi_trips_quarterly_revenue.sql <br>
+Compute the Quarterly Revenues for each year for based on total_amount<br>
+Compute the Quarterly YoY (Year-over-Year) revenue growth<br>
+
+Considering the YoY Growth in 2020, which were the yearly quarters with the best (or less worse) and worst results for green, and yellow<br><br>
+
+1- green: {best: 2020/Q2, worst: 2020/Q1}, yellow: {best: 2020/Q2, worst: 2020/Q1}<br>
+2- green: {best: 2020/Q2, worst: 2020/Q1}, yellow: {best: 2020/Q3, worst: 2020/Q4}<br>
+3- green: {best: 2020/Q1, worst: 2020/Q2}, yellow: {best: 2020/Q2, worst: 2020/Q1}<br>
+4- green: {best: 2020/Q1, worst: 2020/Q2}, yellow: {best: 2020/Q1, worst: 2020/Q2}<br>
+5- green: {best: 2020/Q1, worst: 2020/Q2}, yellow: {best: 2020/Q3, worst: 2020/Q4}<br><br>
+
+first lets create fct_taxi_trips_quarterly_revenue model:
+```python
+#fct_taxi_trips_quarterly_revenue.sql
+{{
+    config(
+        materialized='table'
+    )
+}}
+
+WITH quarterly_revenue AS (
+    SELECT
+        EXTRACT(YEAR FROM fct_table.pickup_datetime) AS year,
+        EXTRACT(QUARTER FROM fct_table.pickup_datetime) AS quarter,
+        CONCAT(EXTRACT(YEAR FROM fct_table.pickup_datetime), '/Q', EXTRACT(QUARTER FROM fct_table.pickup_datetime)) AS year_quarter,
+        fct_table.service_type as service_type,
+        SUM(total_amount) AS total_revenue
+    FROM {{ ref('fact_trips') }} as fct_table
+    GROUP BY 1, 2, 3, 4
+),
+yoy_growth AS (
+    SELECT
+        q1.year,
+        q1.quarter,
+        q1.year_quarter,
+        q1.service_type,
+        q1.total_revenue,
+        q2.total_revenue AS previous_year_revenue,
+        ROUND(
+            ((q1.total_revenue - q2.total_revenue) / NULLIF(q2.total_revenue, 0)) * 100, 2
+        ) AS yoy_growth_percentage
+    FROM quarterly_revenue q1
+    LEFT JOIN quarterly_revenue q2
+    ON q1.service_type = q2.service_type
+    AND q1.year = q2.year + 1
+    AND q1.quarter = q2.quarter
+)
+SELECT * FROM yoy_growth
+ORDER BY service_type, year, quarter
+
+```
+then make a query:<br>
+```python
+-- Best quarter for Green Taxi (highest growth)
+SELECT * FROM {{ this }}  
+WHERE service_type = 'Green'  
+ORDER BY yoy_growth_percentage DESC  
+LIMIT 1;  
+
+-- Worst quarter for Green Taxi (lowest growth)
+SELECT * FROM {{ this }}  
+WHERE service_type = 'Green'  
+ORDER BY yoy_growth_percentage ASC  
+LIMIT 1;  
+
+-- Best quarter for Yellow Taxi  
+SELECT * FROM {{ this }}  
+WHERE service_type = 'Yellow'  
+ORDER BY yoy_growth_percentage DESC  
+LIMIT 1;  
+
+-- Worst quarter for Yellow Taxi  
+SELECT * FROM {{ this }}  
+WHERE service_type = 'Yellow'  
+ORDER BY yoy_growth_percentage ASC  
+LIMIT 1;  
+```
+
+**answer:4**
+__________________________________________________________________________________________
+
 
 [WARNING]: Test 'test.taxi_rides_ny.relationships_stg_yellow_tripdata_dropoff_locationid__locationid__ref_taxi_zone_lookup_csv_.085c4830e7' (models/staging/schema.yml) depends on a node named 'taxi_zone_lookup.csv' in package '' which was not found
 
