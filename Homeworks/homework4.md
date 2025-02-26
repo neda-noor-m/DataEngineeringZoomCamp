@@ -27,10 +27,10 @@ What does this .sql model compile to? <br>
 5- select * from myproject.my_nyc_tripdata.ext_green_taxi<br>
 6- select * from dtc_zoomcamp_2025.raw_nyc_tripdata.green_taxi<br>
 
-**answer: 5** <br><br>
 in `select * from {{ source('raw_nyc_tripdata', 'ext_green_taxi' ) }}`, 'raw_nyc_tripdata' points  to the source name defined under `sources`. so, the database name and schema is taken from that source name. Since we use `export DBT_BIGQUERY_PROJECT=myproject` and `export DBT_BIGQUERY_DATASET=my_nyc_tripdata` finally this query is translated to:
-`select * from myproject.my_nyc_tripdata.ext_green_taxi`
+`select * from myproject.my_nyc_tripdata.ext_green_taxi`<br><br>
 
+**answer: 5** 
 ---------------------------------------------------------------------
 
 <h2>Question 2: dbt Variables & Dynamic Models</h2>
@@ -61,11 +61,20 @@ If neither the command-line argument nor the environment variable is provided, u
 
 ___________________________________________________________________________
 
+<h2>Question 3: dbt Data Lineage and Execution</h2>
+Considering the data lineage below and that taxi_zone_lookup is the only materialization build (from a .csv seed file), Select the option that does NOT apply for materializing fct_taxi_monthly_zone_revenue:<br>
+
+1- dbt run<br>
+2- dbt run --select +models/core/dim_taxi_trips.sql+ --target prod<br>
+3- dbt run --select +models/core/fct_taxi_monthly_zone_revenue.sql<br>
+4- dbt run --select +models/core/<br>
+5- dbt run --select models/staging/+<br>
+
+`dbt run --select models/staging/+` <br>
+❌ This runs only the staging models, excluding fct_taxi_monthly_zone_revenue, which is in core, making it the correct answer.<br>
 
 
-
-
-
+**answer: 5**
 
 
 
