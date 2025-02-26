@@ -31,6 +31,7 @@ in `select * from {{ source('raw_nyc_tripdata', 'ext_green_taxi' ) }}`, 'raw_nyc
 `select * from myproject.my_nyc_tripdata.ext_green_taxi`<br><br>
 
 **answer: 5** 
+
 ---------------------------------------------------------------------
 
 <h2>Question 2: dbt Variables & Dynamic Models</h2>
@@ -76,6 +77,7 @@ Considering the data lineage below and that taxi_zone_lookup is the only materia
 
 **answer: 5**
 
+________________________________________________________________________________________________
 
 
 
