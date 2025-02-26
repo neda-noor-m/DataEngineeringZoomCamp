@@ -78,9 +78,50 @@ Considering the data lineage below and that taxi_zone_lookup is the only materia
 **answer: 5**
 
 ________________________________________________________________________________________________
+<h2>Question 4: dbt Macros and Jinja</h2>
+Consider you're dealing with sensitive data (e.g.: PII), that is only available to your team and very selected few individuals, in the raw layer of your DWH (e.g: a specific BigQuery dataset or PostgreSQL schema),<br>
 
+Among other things, you decide to obfuscate/masquerade that data through your staging models, and make it available in a different schema (a staging layer) for other Data/Analytics Engineers to explore <br>
 
+And optionally, yet another layer (service layer), where you'll build your dimension (dim_) and fact (fct_) tables (assuming the Star Schema dimensional modeling) for Dashboarding and for Tech Product Owners/Managers <br>
 
+You decide to make a macro to wrap a logic around it:<br>
+
+```python
+{% macro resolve_schema_for(model_type) -%}
+
+    {%- set target_env_var = 'DBT_BIGQUERY_TARGET_DATASET'  -%}
+    {%- set stging_env_var = 'DBT_BIGQUERY_STAGING_DATASET' -%}
+
+    {%- if model_type == 'core' -%} {{- env_var(target_env_var) -}}
+    {%- else -%}                    {{- env_var(stging_env_var, env_var(target_env_var)) -}}
+    {%- endif -%}
+
+{%- endmacro %}
+```
+And use on your staging, dim_ and fact_ models as:<br>
+```python
+{{ config(
+    schema=resolve_schema_for('core'), 
+) }}
+```
+That all being said, regarding macro above, select all statements that are true to the models using it:<br>
+
+1- Setting a value for DBT_BIGQUERY_TARGET_DATASET env var is mandatory, or it'll fail to compile<br>
+2- Setting a value for DBT_BIGQUERY_STAGING_DATASET env var is mandatory, or it'll fail to compile<br>
+3- When using core, it materializes in the dataset defined in DBT_BIGQUERY_TARGET_DATASET<br>
+4- When using stg, it materializes in the dataset defined in DBT_BIGQUERY_STAGING_DATASET, or defaults to DBT_BIGQUERY_TARGET_DATASET<br>
+5- When using staging, it materializes in the dataset defined in DBT_BIGQUERY_STAGING_DATASET, or defaults to DBT_BIGQUERY_TARGET_DATASET<br> <br>
+
+<h4>"Setting a value for DBT_BIGQUERY_STAGING_DATASET env var is mandatory, or it'll fail to compile"</h4>
+The env_var(stging_env_var, env_var(target_env_var)) means:<br>
+If DBT_BIGQUERY_STAGING_DATASET is set, it is used.<br>
+If not, it falls back to DBT_BIGQUERY_TARGET_DATASET.<br>
+Since there is a fallback, the compilation will not fail even if DBT_BIGQUERY_STAGING_DATASET is missing. ❌ False (not mandatory, as it has a fallback)<br><br>
+
+**answer:2**
+
+____________________________________________________________________________________
 
 [WARNING]: Test 'test.taxi_rides_ny.relationships_stg_yellow_tripdata_dropoff_locationid__locationid__ref_taxi_zone_lookup_csv_.085c4830e7' (models/staging/schema.yml) depends on a node named 'taxi_zone_lookup.csv' in package '' which was not found
 
