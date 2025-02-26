@@ -205,7 +205,66 @@ LIMIT 1;
 **answer:4**
 __________________________________________________________________________________________
 
+<h2>Question 6: P97/P95/P90 Taxi Monthly Fare</h2>
+  
+Create a new model fct_taxi_trips_monthly_fare_p95.sql <br>
+Filter out invalid entries (fare_amount > 0, trip_distance > 0, and payment_type_description in ('Cash', 'Credit Card'))<br>
+Compute the continous percentile of fare_amount partitioning by service_type, year and and month<br>
+Now, what are the values of p97, p95, p90 for Green Taxi and Yellow Taxi, in April 2020?<br>
 
+1- green: {p97: 55.0, p95: 45.0, p90: 26.5}, yellow: {p97: 52.0, p95: 37.0, p90: 25.5}<br>
+2- green: {p97: 55.0, p95: 45.0, p90: 26.5}, yellow: {p97: 31.5, p95: 25.5, p90: 19.0}<br>
+3- green: {p97: 40.0, p95: 33.0, p90: 24.5}, yellow: {p97: 52.0, p95: 37.0, p90: 25.5}<br>
+4- green: {p97: 40.0, p95: 33.0, p90: 24.5}, yellow: {p97: 31.5, p95: 25.5, p90: 19.0}<br>
+5- green: {p97: 55.0, p95: 45.0, p90: 26.5}, yellow: {p97: 52.0, p95: 25.5, p90: 19.0}<br> <br>
+
+first creat fct_taxi_trips_monthly_fare_p95.sql:
+```python
+{{
+    config(
+        materialized='table'
+    )
+}}
+
+WITH clean_fact_trips AS (
+    SELECT
+        service_type,
+        EXTRACT(YEAR FROM pickup_datetime) AS year,
+        EXTRACT(MONTH FROM pickup_datetime) AS month,
+        fare_amount,
+        trip_distance,
+        payment_type_description
+    FROM {{ ref('fact_trips') }}
+    WHERE
+        fare_amount > 0
+        AND trip_distance > 0
+        AND lower(payment_type_description) in ('cash', 'credit card')
+),
+
+fare_amt_perc AS(
+    SELECT
+        service_type,
+        year,
+        month,
+        PERCENTILE_CONT(fare_amount, 0.97) OVER (PARTITION BY service_type, year, month) AS p97,
+        PERCENTILE_CONT(fare_amount, 0.95) OVER (PARTITION BY service_type, year, month) AS p95,
+        PERCENTILE_CONT(fare_amount, 0.90) OVER (PARTITION BY service_type, year, month) AS p90
+    FROM clean_fact_trips
+    --GROUP BY service_type, year, month
+    --ORDER BY year, month, service_type
+)
+
+SELECT * FROM fare_amt_perc
+```
+and then query:
+```python
+select service_type, max(p97) as p97, max(p95) as p95, max(p90) as p90
+from `taxi-rides-ny-447721.taxi_rides_ny.fct_taxi_trips_monthly_fare_p95`
+where month=4 and year=2020
+group by service_type
+```
+**answer:2**
+___________________________________________________________________________________________
 [WARNING]: Test 'test.taxi_rides_ny.relationships_stg_yellow_tripdata_dropoff_locationid__locationid__ref_taxi_zone_lookup_csv_.085c4830e7' (models/staging/schema.yml) depends on a node named 'taxi_zone_lookup.csv' in package '' which was not found
 
 solve:
