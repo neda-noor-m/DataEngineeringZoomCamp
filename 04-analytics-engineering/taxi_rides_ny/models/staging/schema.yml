@@ -3,11 +3,11 @@ version: 2
 sources:
   - name: staging
     database: taxi-rides-ny-447721
-    schema: trips_all_data
+    schema: HMW_4
 
     tables:
-      - name: green_tripdata
-      - name: yellow_tripdata
+      - name: green_week4
+      - name: yellow_week4
 
 models:
   - name: stg_yellow_tripdata
