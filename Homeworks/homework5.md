@@ -23,5 +23,10 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 3- 75MB<br>
 4- 100MB<br>
 
+**ANSWER: 2**
+<br><br>
+
+![Sample Image](../images/module5/h5_2.png)
+<br><br>
 
 
