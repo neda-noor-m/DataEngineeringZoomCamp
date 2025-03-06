@@ -77,20 +77,39 @@ df_spark.select(F.max("trip_duration_hours")).first()
 ```
 **answer: 3**
 ________________________________________________________________________________________
-Question 5: User Interface
-Spark’s User Interface which shows the application's dashboard runs on which local port?
+<h2>Question 5: User Interface</h2>
+Spark’s User Interface which shows the application's dashboard runs on which local port?<br><br>
 
-80
-443
-4040
-8080
-Question 6: Least frequent pickup location zone
-Load the zone lookup data into a temp view in Spark:
+1- 80<br>
+2- 443<br>
+3- 4040<br>
+4- 8080<br>
 
-wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
-Using the zone lookup data and the Yellow October 2024 data, what is the name of the LEAST frequent pickup location Zone?
+**answer: 3**
+___________________________________________________________________________________________________
+<h2>Question 6: Least frequent pickup location zone</h2>
+Load the zone lookup data into a temp view in Spark:<br><br>
 
-Governor's Island/Ellis Island/Liberty Island
-Arden Heights
-Rikers Island
-Jamaica Bay
+wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv<br><br>
+Using the zone lookup data and the Yellow October 2024 data, what is the name of the LEAST frequent pickup location Zone?<br>
+
+1. Governor's Island/Ellis Island/Liberty Island<br>
+2. Arden Heights<br>
+3. Rikers Island<br>
+4. Jamaica Bay<br>
+```python
+df_csv.registerTempTable("taxi_zone")
+df_spark.registerTempTable("taxi_trips")
+
+spark.sql("""
+select Zone,
+count(*)
+from taxi_trips
+inner join taxi_zone
+on LocationID=PULocationID
+group by 1
+order by 2 asc
+limit 1
+""").show()
+```
+**answer: 1**
