@@ -56,3 +56,41 @@ df_spark = df_spark.withColumn("dropoff_date", F.to_date(df_spark.tpep_dropoff_d
 df_spark.filter(df_spark.pickup_date == "2024-10-15").count()
 ```
 **ANSWER: 3**
+
+________________________________________________________________________________
+<h2>Question 4: Longest trip</h2>
+What is the length of the longest trip in the dataset in hours?<br><br>
+
+1- 122<br>
+2- 142<br>
+3- 162<br>
+4- 182<br>
+
+```python
+# Calculate trip duration in hours
+df_spark = df_spark.withColumn("trip_duration_hours", (col("tpep_dropoff_datetime").cast('long')-col("tpep_pickup_datetime").cast("long"))/3600)
+
+# Find the maximum trip duration
+df_spark.select(F.max("trip_duration_hours")).first()
+
+#Row(max(trip_duration_hours)=162.61777777777777)
+```
+**answer: 3**
+________________________________________________________________________________________
+Question 5: User Interface
+Spark’s User Interface which shows the application's dashboard runs on which local port?
+
+80
+443
+4040
+8080
+Question 6: Least frequent pickup location zone
+Load the zone lookup data into a temp view in Spark:
+
+wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
+Using the zone lookup data and the Yellow October 2024 data, what is the name of the LEAST frequent pickup location Zone?
+
+Governor's Island/Ellis Island/Liberty Island
+Arden Heights
+Rikers Island
+Jamaica Bay
