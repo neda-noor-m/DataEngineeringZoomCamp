@@ -24,10 +24,10 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 4- 100MB<br>
 
 **ANSWER: 2**
-the image below shows the zize of file is about 16MB. Unfortunatly, I cant see this number between numbers abow. but I think the closest one is 25MB.
+
 <br><br>
 
-![Sample Image](../images/module5/h5_2_1.png)
+![Sample Image](../images/module5/h5_2.png)
 <br><br>
 
 
