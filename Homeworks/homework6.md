@@ -14,7 +14,7 @@ Before we can send data to the redpanda server, we need to create a topic. We do
 Read the output of help and based on it, create a topic with name green-trips<br>
 
 What's the output of the command for creating a topic? Include the entire output in your answer.<br><br>
-**answer:**
-TOPIC        STATUS
+**answer:** <br>
+TOPIC        STATUS <br>
 green-trips  OK
 _______________________________________________________________________________________________
