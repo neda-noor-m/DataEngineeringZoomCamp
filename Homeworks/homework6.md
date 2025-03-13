@@ -48,3 +48,52 @@ producer.bootstrap_connected()
 Provided that you can connect to the server, what's the output of the last command? <br>
 
 **answer: True**
+______________________________________________________________________________________________
+
+<h2>Question 4: Sending the Trip Data </h2>
+Now we need to send the data to the green-trips topic<br><br>
+
+Read the data, and keep only these columns:<br><br>
+
+'lpep_pickup_datetime',<br>
+'lpep_dropoff_datetime',<br>
+'PULocationID',<br>
+'DOLocationID',<br>
+'passenger_count',<br>
+'trip_distance',<br>
+'tip_amount'<br>
+Now send all the data using this code:<br><br>
+
+producer.send(topic_name, value=message)<br>
+For each row (message) in the dataset. In this case, message is a dictionary.<br><br>
+
+After sending all the messages, flush the data:<br>
+```python
+producer.flush()
+Use from time import time to see the total time
+
+from time import time
+
+t0 = time()
+
+# ... your code
+
+t1 = time()
+took = t1 - t0
+```
+How much time did it take to send the entire dataset and flush?<br><br>
+
+```python
+tim0 = time()
+
+for _, row in df_h6.iterrows():
+    message = row.to_dict()
+    producer.send(topic_name, value=message)
+producer.flush()
+
+t1 = time()
+took = t1 - tim0
+
+print(f"Time taken to send dataset: {took:.2f} seconds")
+```
+**answer: 92.98 seconds**
