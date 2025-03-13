@@ -18,3 +18,33 @@ What's the output of the command for creating a topic? Include the entire output
 TOPIC        STATUS <br>
 green-trips  OK
 _______________________________________________________________________________________________
+<h2>Question 3. Connecting to the Kafka server</h2>
+We need to make sure we can connect to the server, so later we can send some data to its topics<br><br>
+
+First, let's install the kafka connector (up to you if you want to have a separate virtual environment for that)<br><br>
+
+`pip install kafka-python`
+You can start a jupyter notebook in your solution folder or create a script
+
+Let's try to connect to our server:
+
+```python
+import json
+
+from kafka import KafkaProducer
+
+def json_serializer(data):
+    return json.dumps(data).encode('utf-8')
+
+server = 'localhost:9092'
+
+producer = KafkaProducer(
+    bootstrap_servers=[server],
+    value_serializer=json_serializer
+)
+
+producer.bootstrap_connected()
+```
+Provided that you can connect to the server, what's the output of the last command? <br>
+
+**answer: True**
